@@ -1,14 +1,17 @@
 # Observabilidad API
 
-Este proyecto implementa un sistema básico de observabilidad para una API desarrollada en Node.js y ejecutada con Docker.
+Este proyecto implementa un sistema basico de observabilidad para una API desarrollada en Node.js y ejecutada con Docker.
 
-## Tecnologías utilizadas
+## Tecnologias utilizadas
 
 - Node.js
 - Express
 - Docker
 - Prometheus
 - Grafana
+- Elasticsearch
+- Logstash
+- Kibana
 - Morgan
 - Winston
 - prom-client
@@ -18,6 +21,7 @@ Este proyecto implementa un sistema básico de observabilidad para una API desarr
 - API: http://localhost:3000
 - Prometheus: http://localhost:9090
 - Grafana: http://localhost:3001
+- Kibana: http://localhost:5601
 
 ## Funcionalidades implementadas
 
@@ -29,20 +33,31 @@ Este proyecto implementa un sistema básico de observabilidad para una API desarr
   - `/metrics`
 
 - Registro de logs en archivo `app.log`
-- Exposición de métricas para Prometheus
-- Monitorización con Prometheus
-- Visualización en Grafana mediante dashboard
+- Centralizacion de logs con ELK Stack:
+  - Logstash
+  - Elasticsearch
+  - Kibana
+- Exposicion de metricas para Prometheus
+- Monitorizacion con Prometheus
+- Visualizacion de metricas en Grafana mediante dashboard
+- Visualizacion de logs en Kibana mediante dashboard
 
-## Paneles del dashboard
+## Paneles del dashboard de Grafana
 
 1. Total Requests
 2. Requests per second
 3. Memory usage
 4. CPU usage
 
-## Cómo ejecutar el proyecto
+## Visualizacion en Kibana
 
-Desde la carpeta raíz del proyecto:
+- Logs por tiempo
+- Logs centralizados desde la API
+- Consulta y analisis de eventos registrados
+
+## Como ejecutar el proyecto
+
+Desde la carpeta raiz del proyecto:
 
 ```bash
 docker compose up --build

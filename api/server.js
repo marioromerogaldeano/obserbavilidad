@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const morgan = require('morgan');
 const winston = require('winston');
 const client = require('prom-client');
@@ -212,7 +212,7 @@ app.get('/', (req, res) => {
       <div class="container">
         <h1>Observabilidad API</h1>
         <p class="subtitle">
-          Proyecto de observabilidad con Node.js, Docker, Prometheus y Grafana.
+          Proyecto de observabilidad con Node.js, Docker, Prometheus, Grafana y ELK Stack.
           Esta interfaz sirve para demostrar en directo el funcionamiento de la API
           y generar trafico real para los dashboards.
         </p>
@@ -236,6 +236,7 @@ app.get('/', (req, res) => {
             <div class="links">
               <a class="button dark" href="http://localhost:9090" target="_blank">Prometheus</a>
               <a class="button dark" href="http://localhost:3001" target="_blank">Grafana</a>
+              <a class="button dark" href="http://localhost:5601" target="_blank">Kibana</a>
             </div>
           </div>
 
@@ -259,11 +260,18 @@ app.get('/', (req, res) => {
           </div>
 
           <div class="card">
+            <h2>Logs y visualizacion</h2>
+            <p>Los logs de la API se almacenan en <code>app.log</code> y se centralizan con ELK Stack.</p>
+            <div><code>Logstash → Elasticsearch → Kibana</code></div>
+          </div>
+
+          <div class="card">
             <h2>Puertos del proyecto</h2>
             <ul>
               <li>API: <strong>3000</strong></li>
               <li>Prometheus: <strong>9090</strong></li>
               <li>Grafana: <strong>3001</strong></li>
+              <li>Kibana: <strong>5601</strong></li>
             </ul>
           </div>
 
@@ -274,6 +282,7 @@ app.get('/', (req, res) => {
               <li>Los endpoints principales</li>
               <li>Prometheus recogiendo metricas</li>
               <li>Grafana visualizando trafico, CPU y memoria</li>
+              <li>Kibana visualizando logs centralizados</li>
               <li>Generacion de trafico y errores en directo</li>
             </ul>
           </div>
@@ -281,7 +290,7 @@ app.get('/', (req, res) => {
 
         <div class="footer">
           Preparado para demo en clase.
-          <div class="note">Consejo: abre esta pagina y Grafana a la vez para ensenar como cambian los paneles en directo.</div>
+          <div class="note">Consejo: abre esta pagina, Grafana y Kibana a la vez para ensenar metricas y logs en directo.</div>
         </div>
       </div>
 
